@@ -1,10 +1,11 @@
 html{
-    background-color: #755139;
+    /*background-color: #755139;*/
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F05%2FGradient-Wallpaper.jpg&f=1&nofb=1&ipt=66900c3ac54720a34ec1b9de0472a8275c28c809481df7a57462d998e1d5303c&ipo=images');
     overflow:hidden;
 }
 
 .form-container {
-    background-color: #755139;
+    /* background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F05%2FGradient-Wallpaper.jpg&f=1&nofb=1&ipt=66900c3ac54720a34ec1b9de0472a8275c28c809481df7a57462d998e1d5303c&ipo=images'); */
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -13,7 +14,7 @@ html{
 }
 
 .form-wrapper {
-    background-color: #F2EDD7;
+    background-color: white;
     padding: 20px 60px;
     border-radius: 10px;
     display: flex;
@@ -22,9 +23,15 @@ html{
 }
 
 .logo {
-    color: darkblue;
+    color: #895ec4;
     font-weight: bold;
     font-size: 24px;
+}
+
+.title{
+    color: #895ec4;
+    font-size: 14px;
+    font-family: "Playfair Display";
 }
 
 form {
@@ -34,22 +41,22 @@ form {
 }
 
 input {
-    background-color: #F2EDD7;
+    background-color: #e5e5e5;
     color: darkblue;
     font-weight: bold;
     padding: 15px;
     border: none;
     outline: none;
     width: 250px;
-    border-bottom: 1px solid #755139;
+    border-bottom: 1px solid #c1334a;
     &::placeholder {
-        color: rgb(159, 113, 53);
+        color: #c1334a;
         font-weight: none;
     }
 }
 
 button {
-    background-color: #755139;
+    background-color: #895ec4;
     color: white;
     border-radius: 5%;
     padding: 10px;
