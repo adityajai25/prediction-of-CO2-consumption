@@ -1,11 +1,9 @@
 html{
-    /*background-color: #755139;*/
     background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F05%2FGradient-Wallpaper.jpg&f=1&nofb=1&ipt=66900c3ac54720a34ec1b9de0472a8275c28c809481df7a57462d998e1d5303c&ipo=images');
     overflow:hidden;
 }
 
 .form-container {
-    /* background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F05%2FGradient-Wallpaper.jpg&f=1&nofb=1&ipt=66900c3ac54720a34ec1b9de0472a8275c28c809481df7a57462d998e1d5303c&ipo=images'); */
     height: 100vh;
     width: 100vw;
     display: flex;
