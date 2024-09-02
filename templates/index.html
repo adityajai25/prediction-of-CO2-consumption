@@ -1,36 +1,138 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CO2 Emission Predictor</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CO2 Emission Predictor</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="form-wrapper">
+        <span class="logo">Predict CO2 Emission of Vehicles</span>
+        <span class="title"
+          >Enter the following values to predict the CO2 emission from the
+          vehicle</span
+        >
+        <br />
+        <form id="prediction-form" action="{{ url_for('predict')}}" method="post">
+          <input
+            type="numbers"
+            name="enginesize"
+            placeholder="Engine Size (in liters) 1.0L - 3.5L"
+            required
+          />
+          <input
+            type="numbers"
+            name="cylinders"
+            placeholder="Cylinders typically 4, 6, 8"
+            required
+          />
+          <input
+            type="numbers"
+            name="fuel"
+            step="0.1"
+            placeholder="Fuel consumption in (L/100km) e.g., 8.5"
+            required="required"
+          />
+          <button id="submit" type="submit">Predict</button>
 
-<body>
-    <div class = "form-container">
-        <div class = "form-wrapper">
-          <span class='logo'>Predict CO2 Emission of Vehicles</span>
-          <span class='title'>Enter the following values to predict the CO2 emission from the vehicle</span>
-            <br>
-            <form action="{{ url_for('predict')}}"method="post">
-              <input type="text" name="enginesize" placeholder="Engine Size" required />
-              <input type="text" name="cylinders" placeholder="Cylinders" required />
-              <input type="text" name="fuel" placeholder="Fuel" required="required" />
-              <button type="submit">Predict</button>
+          <div id="prediction-text" class="prediction-result">
+            {% if prediction_text %}
+            <p class="{{ result_class }}">{{ prediction_text }}</p>
+            {% endif %}
+          </div>
+        </form>
+        <div class="data-info" id="info" style="display:block;">
+          <h4>For your information about the terms mentioned</h4>
+          <div class="info-box">
+            <h4>Engine Size</h4>
+            <p>
+              The engine size is measured in liters (L). Typical ranges are:
+            </p>
+            <ul>
+              <li>Small: 1.0L - 2.0L</li>
+              <li>Medium: 2.0L - 3.5L</li>
+              <li>Large: 3.5L and above</li>
+            </ul>
+          </div>
 
-              {{ prediction_text }}
-            </form>   
+          <div class="info-box">
+            <h4>Cylinders</h4>
+            <p>The number of cylinders in the engine. Typical ranges are:</p>
+            <ul>
+              <li>4-cylinder engines: Common in compact and mid-sized cars</li>
+              <li>
+                6-cylinder engines: Found in many SUVs and some high-performance
+                vehicles
+              </li>
+              <li>
+                8-cylinder engines: Typically found in trucks and performance
+                vehicles
+              </li>
+            </ul>
+          </div>
+
+          <div class="info-box">
+            <h4>Fuel Consumption</h4>
+            <p>
+              Fuel Consumption measures how much fuel the vehicle uses per 100
+              kilometers. Lower values indicate better fuel efficiency, which
+              generally translates to lower CO2 emissions.
+            </p>
+            <ul>
+              Typical range: 5.0 - 15.0 L/100km
+            </ul>
+          </div>
         </div>
-   <br>
-   <br>
-   
-
- </div>
-
-
-</body>
+        <div id="table" style="display:none;">
+          <table class="value-table">
+            <tr>
+              <th>Category</th>
+              <th>CO2 Emission Range (g/km)</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td class="green">Green</td>
+              <td>Less than 113</td>
+              <td>Low Emissions (Environmentally Friendly)</td>
+            </tr>
+            <tr>
+              <td class="yellow">Yellow</td>
+              <td>113 to 130</td>
+              <td>Moderate Emissions (Older Standard)</td>
+            </tr>
+            <tr>
+              <td class="red">Red</td>
+              <td>More than 226</td>
+              <td>High Emissions (Environmentally Unfriendly)</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  </body>
 </html>

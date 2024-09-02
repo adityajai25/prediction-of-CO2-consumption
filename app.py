@@ -22,9 +22,19 @@ def predict():
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
-    output = round(prediction[0], 2)
+    co2_emission = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='CO2 Emission of the vehicle is :{}'.format(output))
+    if co2_emission < 113:
+        result_class = 'green'
+        prediction_text = f'CO2 Emission: {co2_emission} g/km (Low Emissions)'
+    elif 113 <= co2_emission <= 130:
+        result_class = 'yellow'
+        prediction_text = f'CO2 Emission: {co2_emission} g/km (Moderate Emissions)'
+    else:
+        result_class = 'red'
+        prediction_text = f'CO2 Emission: {co2_emission} g/km (High Emissions)'
+
+    return render_template('index.html', prediction_text=prediction_text, result_class=result_class)
 
 if __name__ == "__main__":
     app.run(debug=True)

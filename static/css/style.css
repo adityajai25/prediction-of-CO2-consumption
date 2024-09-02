@@ -1,72 +1,129 @@
-html{
-    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F05%2FGradient-Wallpaper.jpg&f=1&nofb=1&ipt=66900c3ac54720a34ec1b9de0472a8275c28c809481df7a57462d998e1d5303c&ipo=images');
-    overflow:hidden;
+body {
+    font-family: "Arimo", sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .form-container {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
 }
 
 .form-wrapper {
-    background-color: white;
-    padding: 20px 60px;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .logo {
-    color: #895ec4;
-    font-weight: bold;
+    font-family: "Pacifico", cursive;
     font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.title{
-    color: #895ec4;
-    font-size: 14px;
-    font-family: "Playfair Display";
+.title {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    width: 100%;
 }
 
 input {
-    background-color: #e5e5e5;
-    color: darkblue;
-    font-weight: bold;
-    padding: 15px;
-    border: none;
-    outline: none;
-    width: 250px;
-    border-bottom: 1px solid #c1334a;
-    &::placeholder {
-        color: #c1334a;
-        font-weight: none;
-    }
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 button {
-    background-color: #895ec4;
-    color: white;
-    border-radius: 5%;
     padding: 10px;
-    font-weight: bold;
+    background-color: #4caf50;
+    color: white;
     border: none;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: darkblue;
-    font-size: 12px;
+button:hover {
+    background-color: #45a049;
+}
+
+.info-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.info-box h4 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.info-box p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.info-box ul {
+    margin: 10px 0 0 20px;
+    padding: 0;
+    list-style-type: disc;
+}
+
+.info-box li {
+    font-size: 14px;
+    color: #666;
+}
+.prediction-result{
+    font-weight: bold;
+    font-size: 120%;
+}
+.green { 
+    color: green; 
+}
+.yellow { 
+    color: orange; 
+}
+.red { 
+    color: red; 
+}
+
+table{
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+table th{
+    text-align: center;
+    text-transform: capitalize;
+}
+th,td {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
 }
